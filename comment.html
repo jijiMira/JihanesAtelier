@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page de Commentaires</title>
+    <style>
+        /* Style pour rendre la mise en page agréable */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #commentSection {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Page de Commentaires</h1>
+
+<div id="commentSection">
+    <h2>Commentaires</h2>
+    <ul id="commentList"></ul>
+    <textarea id="commentInput" placeholder="Ajouter un commentaire"></textarea>
+    <button onclick="addComment()">Ajouter</button>
+</div>
+
+<script>
+    function addComment() {
+        var commentInput = document.getElementById('commentInput');
+        var commentText = commentInput.value;
+
+        if (commentText.trim() === '') {
+            alert('Veuillez entrer un commentaire.');
+            return;
+        }
+
+        var commentList = document.getElementById('commentList');
+        var newComment = document.createElement('li');
+        newComment.textContent = commentText;
+        commentList.appendChild(newComment);
+
+        // Réinitialiser le champ de commentaire après l'ajout
+        commentInput.value = '';
+    }
+</script>
+
+</body>
+</html>
